@@ -11,7 +11,12 @@ export interface RepoStateModel {
   repoList: Repo[],
   pageNumber: number,
   loading: boolean,
-  error: boolean
+  status: number,
+  error: {
+    message?: string,
+    statusText?: string,
+    troublshooot?: string
+  }
 }
 
 @State<RepoStateModel>({
@@ -20,7 +25,8 @@ export interface RepoStateModel {
     repoList: [],
     pageNumber: 1,
     loading: true,
-    error: false
+    status: 200,
+    error: {}
   }
 })
 @Injectable()
@@ -49,18 +55,23 @@ export class RepoState {
     
     return this.repoService.fetchRepos(pageNumber).pipe(
       tap((result) => {
-        console.log(result)
         setState({
           ...state,
-          repoList: [],
-          error: false,
-          loading: false
+          repoList: [...repoList, ...result],
+          pageNumber: pageNumber + 1,
+          error: {},
+          loading: false,
+          status: 200
         })
       }), catchError((err) => {
-        console.log(`ERROR: ${err}`)
         setState({
           ...state,
-          error: true,
+          status: err.status,
+          error: {
+            message: err.message,
+            statusText: err.statusText,
+            troublshooot: err.error.documentation_url
+          },
           loading: false
         })
         return of('')

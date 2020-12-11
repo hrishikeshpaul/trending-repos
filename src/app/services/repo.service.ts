@@ -17,11 +17,7 @@ export class RepoService {
   constructor(private http: HttpClient) { }
 
   fetchRepos(page: number) {
-    const currentDate = new Date();
-    const currentDateTime = currentDate.getTime();
-    const last30DaysDate = new Date(currentDate.setDate(currentDate.getDate() - 30));
-    const last30DaysDateTime = last30DaysDate.getTime();
-
+  
     const repoList: Repo[] = [];
 
     return this.http.get<GHResponse>(`https://api.github.com/search/repositories?q=created:%3E2020-05-22&sort=stars&order=desc&page=${page}`).pipe(
@@ -31,6 +27,7 @@ export class RepoService {
             name: repo.name,
             url: repo.html_url,
             owner: repo.owner.login,
+            owner_url: repo.owner.html_url,
             avatar: repo.owner.avatar_url,
             description: repo.description,
             stars: repo.stargazers_count,
@@ -39,14 +36,29 @@ export class RepoService {
           })
         })
 
-        return repoList
+        const updatedRepoList = this.filterRepos(repoList);
+      
+        return updatedRepoList;
       }), catchError(err => {
-        return throwError('Could not fetch data.')
+        return throwError(err)
       })
     )
   }
 
-  filterRepos(repoList: Array<any>) {
+  filterRepos(repoList: Array<Repo>) {
+    const currentDate = new Date();
+    const currentDateTime = currentDate.getTime();
+    const last30DaysDate = new Date(currentDate.setDate(currentDate.getDate() - 90));
+    const last30DaysDateTime = last30DaysDate.getTime();
 
+    const updatedList = repoList.filter(repo => {
+      const elementDateTime = new Date(repo.created).getTime();
+      if (elementDateTime <= currentDateTime && elementDateTime > last30DaysDateTime) {
+        return true;
+      }
+      return false
+    })
+
+    return updatedList
   }
 }
