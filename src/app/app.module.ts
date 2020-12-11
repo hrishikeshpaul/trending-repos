@@ -11,12 +11,16 @@ import {HttpClientModule} from '@angular/common/http';
 
 
 import { RepoState } from './store/repo.state';
+import { ListComponent } from './components/list/list.component';
+import { RepoCardComponent } from './components/repo-card/repo-card.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListComponent,
+    RepoCardComponent
   ],
   imports: [
     BrowserModule,

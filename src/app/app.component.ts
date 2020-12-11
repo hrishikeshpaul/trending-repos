@@ -18,7 +18,5 @@ export class AppComponent {
     this.store.dispatch(new FetchAllRepos());
   }
 
-  do() {
-    this.store.dispatch(new FetchAllRepos());
-  }
+  
 }
