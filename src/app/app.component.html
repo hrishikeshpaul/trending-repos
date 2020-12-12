@@ -1,6 +1,10 @@
 <div class="container p-5 center">
   <app-list></app-list>
-  <div *ngIf="isLoading$ | async">show loader</div>
+  <div *ngIf="isLoading$ | async" class="w-100 text-center my-5">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
   <div>
     <app-error *ngIf="status !== 200" [error]="error" [status]="status"></app-error>
   </div>

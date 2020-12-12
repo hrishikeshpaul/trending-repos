@@ -20,7 +20,7 @@ export class RepoService {
   
     const repoList: Repo[] = [];
 
-    return this.http.get<GHResponse>(`https://api.github.com/searh/repositories?q=created:%3E2020-05-22&sort=stars&order=desc&page=${page}`).pipe(
+    return this.http.get<GHResponse>(`https://api.github.com/search/repositories?q=created:%3E2020-05-22&sort=stars&order=desc&page=${page}`).pipe(
       map((repos) => {
         repos.items.forEach(repo => {
           repoList.push({
