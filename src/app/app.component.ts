@@ -23,10 +23,11 @@ export class AppComponent implements OnInit {
   repoList: Repo[];
   isLoading: boolean;
 
-
   constructor(private store: Store) {
     AOS.init({
-      offset: -200
+      offset: -200,
+      easing: 'ease',
+      once: false
     });
     this.store.dispatch(new FetchAllRepos());
   }

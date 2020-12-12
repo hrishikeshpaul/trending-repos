@@ -13,11 +13,11 @@ export interface GHResponse {
   providedIn: 'root'
 })
 export class RepoService {
-  
+
   constructor(private http: HttpClient) { }
 
   fetchRepos(page: number) {
-  
+
     const repoList: Repo[] = [];
 
     return this.http.get<GHResponse>(`https://api.github.com/search/repositories?q=created:%3E2020-05-22&sort=stars&order=desc&page=${page}`).pipe(
@@ -33,13 +33,11 @@ export class RepoService {
             stars: repo.stargazers_count,
             issues: repo.open_issues,
             created: repo.created_at,
-            idx: i
+            idx: null
           })
         })
 
-        const updatedRepoList = this.filterRepos(repoList);
-      
-        return updatedRepoList;
+        return this.filterRepos(repoList);
       }), catchError(err => {
         return throwError(err)
       })
@@ -52,13 +50,20 @@ export class RepoService {
     const last30DaysDate = new Date(currentDate.setDate(currentDate.getDate() - 50));
     const last30DaysDateTime = last30DaysDate.getTime();
 
-    const updatedList = repoList.filter(repo => {
+    let updatedList = repoList.filter(repo => {
       const elementDateTime = new Date(repo.created).getTime();
       if (elementDateTime <= currentDateTime && elementDateTime > last30DaysDateTime) {
         return true;
       }
       return false
     })
+
+    updatedList = updatedList.map(
+      (repo, i) => {
+        const obj = Object.assign({}, repo);
+        obj.idx = i;
+        return obj;
+      })
 
     return updatedList
   }
