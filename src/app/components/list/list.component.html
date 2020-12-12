@@ -1,4 +1,6 @@
-<div *ngIf="isLoading$ | async">show loader</div>
+<div>
+  <div *ngFor="let repo of repoList">
+    <app-repo-card></app-repo-card>
+  </div>
+</div>
 
-
-<button (click)="getRepoList()" class="btn btn-lg btn-primary">Click</button>

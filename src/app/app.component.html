@@ -1,1 +1,9 @@
-<app-list></app-list>
+<div class="container p-5 center">
+  <app-list></app-list>
+  <div *ngIf="isLoading$ | async">show loader</div>
+  <div>
+    <app-error *ngIf="status !== 200" [error]="error" [status]="status"></app-error>
+  </div>
+
+<button (click)="getRepoList()" class="btn btn-lg btn-primary">Click</button>
+</div>

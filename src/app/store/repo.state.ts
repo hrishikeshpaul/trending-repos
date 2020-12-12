@@ -1,5 +1,5 @@
 import { State, Selector, Action, StateContext } from '@ngxs/store';
-import { Repo } from './repo.model';
+import { Repo, Error } from './repo.model';
 import { Injectable } from '@angular/core';
 import { FetchAllRepos } from './repo.actions';
 import { RepoService } from "../services/repo.service";
@@ -12,11 +12,7 @@ export interface RepoStateModel {
   pageNumber: number,
   loading: boolean,
   status: number,
-  error: {
-    message?: string,
-    statusText?: string,
-    troublshooot?: string
-  }
+  error: Error
 }
 
 @State<RepoStateModel>({
@@ -32,6 +28,11 @@ export interface RepoStateModel {
 @Injectable()
 export class RepoState {
   constructor(private repoService: RepoService) { }
+  
+  @Selector()
+  static getState(state: RepoStateModel) {
+    return state
+  }
 
   @Selector()
   static getRepoList(state: RepoStateModel) {
@@ -43,6 +44,16 @@ export class RepoState {
     return state.loading
   }
 
+  @Selector()
+  static getStatus(state: RepoStateModel) {
+    return state.status
+  }
+
+  @Selector()
+  static getError(state: RepoStateModel) {
+    return state.error
+  }
+
   @Action(FetchAllRepos)
   fetchRepos({ getState, setState, patchState }: StateContext<RepoStateModel>) {
     const state = getState();
@@ -50,7 +61,8 @@ export class RepoState {
     const repoList = state.repoList;
 
     patchState({
-      loading: true
+      loading: true,
+      status: 200
     })
     
     return this.repoService.fetchRepos(pageNumber).pipe(

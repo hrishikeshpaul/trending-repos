@@ -9,3 +9,9 @@ export interface Repo {
   issues: number,
   created: string
 }
+
+export interface Error {
+  message?: string,
+  statusText?: string,
+  troublshooot?: string
+}

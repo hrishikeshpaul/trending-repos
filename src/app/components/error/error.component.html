@@ -1,0 +1,43 @@
+<div class="accordion w-50 my-4" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button
+        class="accordion-button bg-white border-danger text-dark "
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseOne"
+        aria-expanded="true"
+        aria-controls="collapseOne"
+      >
+        <div class="w-100">
+          <span class="badge bg-danger"
+            >{{status}} </span>
+          <span class="pl-3"> {{ error.statusText }}</span>
+        </div>
+      </button>
+    </h2>
+    <div
+      id="collapseOne"
+      class="accordion-collapse collapse border-danger"
+      aria-labelledby="headingOne"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body">
+        <strong>Message</strong>
+        <div>
+          {{ error.message }}
+        </div>
+        <br />
+        <div>
+          <strong>Troubleshoot: </strong>
+          <div>
+            You can get more information about the error at
+            <a [href]="error.troublshooot" target="_blank">{{
+              error.troublshooot
+            }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
