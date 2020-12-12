@@ -38,7 +38,7 @@ export class RepoService {
             stars: repo.stargazers_count,
             issues: repo.open_issues,
             created: repo.created_at,
-            idx: i % 10
+            idx: i % 5
           });
         });
 
