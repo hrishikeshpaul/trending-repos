@@ -48,29 +48,4 @@ export class RepoService {
       })
     );
   }
-
-  filterRepos(repoList: Array<Repo>) {
-    const currentDate = new Date();
-    const currentDateTime = currentDate.getTime();
-    const last30DaysDate = new Date(currentDate.setDate(currentDate.getDate() - 50));
-    const last30DaysDateTime = last30DaysDate.getTime();
-    console.log(moment(last30DaysDate).format('YYYY-MM-DD'))
-
-    let updatedList = repoList.filter(repo => {
-      const elementDateTime = new Date(repo.created).getTime();
-      if (elementDateTime <= currentDateTime && elementDateTime > last30DaysDateTime) {
-        return true;
-      }
-      return false;
-    });
-
-    updatedList = updatedList.map(
-      (repo, i) => {
-        const obj = Object.assign({}, repo);
-        obj.idx = i;
-        return obj;
-      });
-
-    return updatedList;
-  }
 }
