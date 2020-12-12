@@ -23,6 +23,7 @@
     "@ngxs/devtools-plugin": "^3.7.1",
     "@ngxs/logger-plugin": "^3.7.1",
     "@ngxs/store": "^3.7.1",
+    "aos": "^2.3.4",
     "bootstrap": "^5.0.0-beta1",
     "moment": "^2.29.1",
     "rxjs": "~6.5.4",

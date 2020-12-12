@@ -1,8 +1,7 @@
-<div>
-  <div *ngFor="let repo of repoList">
-    <div class="my-5">
+<div id="list">
+  <div *ngFor="let repo of repoList;">
+    <div class="my-5" data-aos="fade-up" [attr.data-aos-delay]="repo.idx * 100">
       <app-repo-card [repo]="repo" ></app-repo-card>
     </div>
   </div>
 </div>
-

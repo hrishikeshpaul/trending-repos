@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import {Select, Store} from '@ngxs/store';
-import {Observable} from 'rxjs';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { Select, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
 import { RepoState, RepoStateModel } from './store/repo.state';
 import { FetchAllRepos } from './store/repo.actions';
 import { Repo } from './store/repo.model';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,9 @@ export class AppComponent implements OnInit {
 
 
   constructor(private store: Store) {
+    AOS.init({
+      offset: -200
+    });
     this.store.dispatch(new FetchAllRepos());
   }
 
@@ -43,5 +47,15 @@ export class AppComponent implements OnInit {
 
   getRepoList() {
     this.store.dispatch(new FetchAllRepos());
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    if (
+      window.innerHeight + window.pageYOffset ===
+      document.documentElement.offsetHeight
+    ) {
+      this.getRepoList()
+    }
   }
 }

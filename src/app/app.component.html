@@ -1,4 +1,4 @@
-<div class="container p-5 center">
+<div class="container p-5 center" id="main">
   <app-list [repoList]="repoList"></app-list>
   <div *ngIf="isLoading$ | async" class="w-100 text-center my-5">
     <div class="spinner-border" role="status">
@@ -8,6 +8,4 @@
   <div>
     <app-error *ngIf="status !== 200" [error]="error" [status]="status"></app-error>
   </div>
-
-<button (click)="getRepoList()" class="btn btn-lg btn-primary">Click</button>
 </div>

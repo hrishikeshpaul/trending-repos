@@ -7,7 +7,8 @@ export interface Repo {
   description: string,
   stars: number,
   issues: number,
-  created: string
+  created: string,
+  idx: number
 }
 
 export interface Error {

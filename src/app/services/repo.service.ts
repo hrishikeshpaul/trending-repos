@@ -22,7 +22,7 @@ export class RepoService {
 
     return this.http.get<GHResponse>(`https://api.github.com/search/repositories?q=created:%3E2020-05-22&sort=stars&order=desc&page=${page}`).pipe(
       map((repos) => {
-        repos.items.forEach(repo => {
+        repos.items.forEach((repo, i) => {
           repoList.push({
             name: repo.name,
             url: repo.html_url,
@@ -32,7 +32,8 @@ export class RepoService {
             description: repo.description,
             stars: repo.stargazers_count,
             issues: repo.open_issues,
-            created: repo.created_at
+            created: repo.created_at,
+            idx: i
           })
         })
 
@@ -48,7 +49,7 @@ export class RepoService {
   filterRepos(repoList: Array<Repo>) {
     const currentDate = new Date();
     const currentDateTime = currentDate.getTime();
-    const last30DaysDate = new Date(currentDate.setDate(currentDate.getDate() - 90));
+    const last30DaysDate = new Date(currentDate.setDate(currentDate.getDate() - 50));
     const last30DaysDateTime = last30DaysDate.getTime();
 
     const updatedList = repoList.filter(repo => {
