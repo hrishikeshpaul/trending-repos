@@ -8,14 +8,25 @@ The user can also visit the repository by clicking on the repository name.
 
 # How to run
 
-Clone the repository on your local system
-```shell
-$ git clone https://github.com/hrishikeshpaul/trending-repos.git
-$ cd trending-repos
-```
+- Requirements
+  - NPM
+  - Angular CLI
 
-Start development server
-```shell
-$ npm install
-$ ng serve -o 
-```
+- Clone the repository on your local system
+   ```shell
+   $ git clone https://github.com/hrishikeshpaul/trending-repos.git
+   $ cd trending-repos
+   ```
+
+- Start development server
+   ```shell
+   $ npm install
+   $ ng serve -o 
+   ```
+
+- For production
+  ```shell
+  $ ng deploy --base-href=https://<username>.github.io trending-repos/ --name=<name> --email=<email>
+  ```
+
+# Documentation
