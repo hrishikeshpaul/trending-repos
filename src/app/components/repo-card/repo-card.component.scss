@@ -11,15 +11,15 @@
   box-shadow: 3px 3px 50px 10px #ededed;
 }
 
-.repo-name {
+.repo-name-link {
   color: black;
   font-weight: 500 !important;
   transition: 0.2s all;
   cursor: pointer;
 }
 
-.repo-name:hover {
-  color: #0d6efd;
+.repo-name-link:hover {
+  color: #0d6efd !important;
 }
 
 .g-badge {
@@ -71,4 +71,11 @@
 
 .sm-text {
   font-size: 10pt;
+}
+
+@media (min-width: 200px) { 
+  .issue {
+    margin-left: 0 !important;
+    margin-top: 10px !important;
+  }
 }

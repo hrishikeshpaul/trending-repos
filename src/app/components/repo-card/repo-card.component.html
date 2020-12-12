@@ -5,8 +5,8 @@
     </div>
     <div class="col-xl-10 col-lg-10 col-md-9 col-sm-12">
       <div class="card h-100">
-        <div class="card-header p-0 pt-2">
-          <h2 class="bold"><a [href]="repo.url" class="text-decoration-none repo-name" target="_blank">{{ repo.name }}</a></h2>
+        <div class="card-header p-0 pt-2 repo-name">
+          <h2 class="bold"><a [href]="repo.url" class="text-decoration-none repo-name-link" target="_blank">{{ repo.name }}</a></h2>
         </div>
         <div class="card-body p-0">
           <span class="fw-light">{{ repo.description }}</span>
@@ -21,7 +21,7 @@
                 <span class="bold">{{ repo.stars }}</span>
               </div>
             </div>
-            <div class="badger mx-4 my-1">
+            <div class="badger mx-4 my-1 issue">
               <div class="rounded bg-secondary py-1 px-2 badger">
                 <i class="fas fa-exclamation-circle text-danger"></i> Issues
               </div>
