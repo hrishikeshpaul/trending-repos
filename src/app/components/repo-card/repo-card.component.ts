@@ -9,7 +9,7 @@ import * as moment from 'moment';
   styleUrls: ['./repo-card.component.scss']
 })
 export class RepoCardComponent implements OnInit {
-  
+
   @Input() repo: Repo;
 
   moment = moment;

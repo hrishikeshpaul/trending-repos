@@ -13,7 +13,7 @@ import * as AOS from 'aos';
 })
 export class AppComponent implements OnInit {
   @Select(RepoState.getRepoList) repos$: Observable<Repo[]>;
-  @Select(RepoState.isLoading) isLoading$: Observable<Boolean>;
+  @Select(RepoState.isLoading) isLoading$: Observable<boolean>;
   @Select(RepoState.getStatus) status$: Observable<number>;
   @Select(RepoState.getError) error$: Observable<Error>;
   @Select(RepoState.isLoading) state$: Observable<RepoStateModel>;
@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
     AOS.init({
       offset: -200,
       easing: 'ease',
-      once: false
+      once: true
     });
     this.store.dispatch(new FetchAllRepos());
   }
@@ -35,15 +35,15 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.repos$.subscribe(data => {
       this.repoList = data;
-    })
+    });
 
     this.status$.subscribe(status => {
-      this.status = status
-    })
+      this.status = status;
+    });
 
     this.error$.subscribe(error => {
       this.error = error;
-    })
+    });
   }
 
   getRepoList() {
@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
       window.innerHeight + window.pageYOffset ===
       document.documentElement.offsetHeight
     ) {
-      this.getRepoList()
+      this.getRepoList();
     }
   }
 }

@@ -2,17 +2,17 @@ import { State, Selector, Action, StateContext } from '@ngxs/store';
 import { Repo, Error } from './repo.model';
 import { Injectable } from '@angular/core';
 import { FetchAllRepos } from './repo.actions';
-import { RepoService } from "../services/repo.service";
+import { RepoService } from '../services/repo.service';
 import { tap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 
 export interface RepoStateModel {
-  repoList: Repo[],
-  pageNumber: number,
-  loading: boolean,
-  status: number,
-  error: Error
+  repoList: Repo[];
+  pageNumber: number;
+  loading: boolean;
+  status: number;
+  error: Error;
 }
 
 @State<RepoStateModel>({
@@ -28,30 +28,30 @@ export interface RepoStateModel {
 @Injectable()
 export class RepoState {
   constructor(private repoService: RepoService) { }
-  
+
   @Selector()
   static getState(state: RepoStateModel) {
-    return state
+    return state;
   }
 
   @Selector()
   static getRepoList(state: RepoStateModel) {
-    return state.repoList
+    return state.repoList;
   }
 
   @Selector()
   static isLoading(state: RepoStateModel) {
-    return state.loading
+    return state.loading;
   }
 
   @Selector()
   static getStatus(state: RepoStateModel) {
-    return state.status
+    return state.status;
   }
 
   @Selector()
   static getError(state: RepoStateModel) {
-    return state.error
+    return state.error;
   }
 
   @Action(FetchAllRepos)
@@ -63,8 +63,8 @@ export class RepoState {
     patchState({
       loading: true,
       status: 200
-    })
-    
+    });
+
     return this.repoService.fetchRepos(pageNumber).pipe(
       tap((result) => {
         setState({
@@ -74,7 +74,7 @@ export class RepoState {
           error: {},
           loading: false,
           status: 200
-        })
+        });
       }), catchError((err) => {
         setState({
           ...state,
@@ -85,10 +85,10 @@ export class RepoState {
             troublshooot: err.error.documentation_url
           },
           loading: false
-        })
-        return of('')
+        });
+        return of('');
       })
-    )
+    );
   }
 }
 

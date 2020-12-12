@@ -7,16 +7,16 @@ import { Repo } from 'src/app/store/repo.model';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  
+
   @Input() repoList: Array<Repo>;
 
   constructor(){
   }
 
   ngOnInit(): void {
-    
+
   }
 
-  
-  
+
+
 }

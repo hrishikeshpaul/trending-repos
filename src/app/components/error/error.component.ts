@@ -7,7 +7,7 @@ import { Error } from 'src/app/store/repo.model';
   styleUrls: ['./error.component.scss']
 })
 export class ErrorComponent implements OnInit {
-  @Input() error: Error
+  @Input() error: Error;
   @Input() status: number;
   constructor() { }
 

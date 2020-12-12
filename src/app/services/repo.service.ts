@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, catchError } from "rxjs/operators";
+import { map, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { Repo } from "../store/repo.model";
+import { Repo } from '../store/repo.model';
+import URL from '../../assets/static';
+import * as moment from 'moment';
+
 export interface GHResponse {
-  total_count: number,
-  incomplete_results: false,
+  total_count: number;
+  incomplete_results: false;
   items: Array<any>;
 }
 
@@ -20,7 +23,9 @@ export class RepoService {
 
     const repoList: Repo[] = [];
 
-    return this.http.get<GHResponse>(`https://api.github.com/search/repositories?q=created:%3E2020-05-22&sort=stars&order=desc&page=${page}`).pipe(
+    const last30DaysDate = new Date(new Date().setDate(new Date().getDate() - 30))
+
+    return this.http.get<GHResponse>(URL(moment(last30DaysDate).format('YYYY-MM-DD'), page)).pipe(
       map((repos) => {
         repos.items.forEach((repo, i) => {
           repoList.push({
@@ -33,15 +38,15 @@ export class RepoService {
             stars: repo.stargazers_count,
             issues: repo.open_issues,
             created: repo.created_at,
-            idx: null
-          })
-        })
+            idx: i % 10
+          });
+        });
 
-        return this.filterRepos(repoList);
+        return repoList;
       }), catchError(err => {
-        return throwError(err)
+        return throwError(err);
       })
-    )
+    );
   }
 
   filterRepos(repoList: Array<Repo>) {
@@ -49,22 +54,23 @@ export class RepoService {
     const currentDateTime = currentDate.getTime();
     const last30DaysDate = new Date(currentDate.setDate(currentDate.getDate() - 50));
     const last30DaysDateTime = last30DaysDate.getTime();
+    console.log(moment(last30DaysDate).format('YYYY-MM-DD'))
 
     let updatedList = repoList.filter(repo => {
       const elementDateTime = new Date(repo.created).getTime();
       if (elementDateTime <= currentDateTime && elementDateTime > last30DaysDateTime) {
         return true;
       }
-      return false
-    })
+      return false;
+    });
 
     updatedList = updatedList.map(
       (repo, i) => {
         const obj = Object.assign({}, repo);
         obj.idx = i;
         return obj;
-      })
+      });
 
-    return updatedList
+    return updatedList;
   }
 }
