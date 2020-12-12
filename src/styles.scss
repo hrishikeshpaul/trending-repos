@@ -3,10 +3,11 @@
 $fa-font-path: "~@fortawesome/fontawesome-free/webfonts/";
 @import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import '~@fortawesome/fontawesome-free/scss/solid.scss';
-@import '~@fortawesome/fontawesome-free/scss/brands.scss';
+@import '~@fortawesome/fontawesome-free/scss/regular.scss';
 
 
 *, html, body {
   font-family: 'Poppins', sans-serif;
+  background-color: '#f9dbbd' !important;
 }
 

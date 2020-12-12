@@ -1,0 +1,74 @@
+.br {
+  border-radius: 20px;
+}
+
+.g-card {
+  box-shadow: 3px 3px 40px 5px #f0f0f0;
+  transition: 0.2s all;
+}
+
+.g-card:hover {
+  box-shadow: 3px 3px 50px 10px #ededed;
+}
+
+.repo-name {
+  color: black;
+  font-weight: 500 !important;
+  transition: 0.2s all;
+  cursor: pointer;
+}
+
+.repo-name:hover {
+  color: #0d6efd;
+}
+
+.g-badge {
+  border-radius: 10px;
+}
+
+.card {
+  border: none !important;
+}
+
+.centering {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header, .card-footer {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.num-border {
+  border: 1px solid #f5f5f5;
+}
+
+.rounded-right {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.rounded-left {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.bg-secondary {
+  background-color: #f5f5f5 !important;
+}
+
+.badger {
+  width: fit-content; 
+  display: inline-block;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.sm-text {
+  font-size: 10pt;
+}

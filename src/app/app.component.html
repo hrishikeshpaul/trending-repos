@@ -1,5 +1,5 @@
 <div class="container p-5 center">
-  <app-list></app-list>
+  <app-list [repoList]="repoList"></app-list>
   <div *ngIf="isLoading$ | async" class="w-100 text-center my-5">
     <div class="spinner-border" role="status">
       <span class="visually-hidden">Loading...</span>

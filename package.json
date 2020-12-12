@@ -24,6 +24,7 @@
     "@ngxs/logger-plugin": "^3.7.1",
     "@ngxs/store": "^3.7.1",
     "bootstrap": "^5.0.0-beta1",
+    "moment": "^2.29.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
