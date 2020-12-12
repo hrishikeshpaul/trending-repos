@@ -3,12 +3,13 @@
 }
 
 .g-card {
-  box-shadow: 3px 3px 40px 5px #f0f0f0;
-  transition: 0.2s all;
+  border: 1px solid #ececec;
+  background-color: white !important;
+  transition: 0.3s all;
 }
 
 .g-card:hover {
-  box-shadow: 3px 3px 50px 10px #ededed;
+  box-shadow: 3px 3px 50px 10px #ededed58;
 }
 
 .repo-name-link {
