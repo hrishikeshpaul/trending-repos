@@ -6,6 +6,8 @@ highest stars. The application also uses a dynamic loading feature where
 more repositories are fetched when scrolling to the bottom of the website.
 The user can also visit the repository by clicking on the repository name.
 
+[Live Demo](https://hrishikeshpaul.github.io/trending-repos/)
+
 # How to run
 
 - Requirements
@@ -131,7 +133,7 @@ more information about the error.
     items: Array<any>;
   }
   ```
-- Throws and error if the request fails.
+- Throws an error if the request fails.
 
 ## Store
 
@@ -170,6 +172,12 @@ Return observables of the data or object so that the data can be consumed by the
 - *isLoading*: Returns the value of `isLoading`.
 - *getStatus*: Returns teh current status.
 - *getError*: Returns the error object.
+
+
+## Helper Function
+
+### function URL(date: string, page: number) 
+- Accepts the last 3 days date and page number and returns an URL with the mentioned query parameters.
 
 
 
