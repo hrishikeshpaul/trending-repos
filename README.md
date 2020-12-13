@@ -1,5 +1,6 @@
-# Trending Repos
+<img src="src/assets/tr-banner.png" style="width: 100%" />
 
+--- 
 Trending Repos is a simple web application that makes use of the GitHub
 API to display the most recently created repositories that have the 
 highest stars. The application also uses a dynamic loading feature where
@@ -70,7 +71,7 @@ The application makes use of 2 dumb componenets - list and repo-card. These comp
 Diagram below depics the workflow,
 
 
-![TR Workflow](src/assets/tr-workflow.png)
+<img src="src/assets/tr-workflow.png" style="width: 100%" />
 
 ### Components
 
