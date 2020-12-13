@@ -42,12 +42,12 @@ The user can also visit the repository by clicking on the repository name.
 ## Documentation
 
 ### Packages
-- [**Angular 9**](https://angular.io/): Front-end framework
-- [**NGXS**](https://www.ngxs.io/): State management
-- [**Bootstrap**](https://getbootstrap.com/): Styling library
-- [**MomentJS**](https://momentjs.com/): Date formatting
-- [**AOS**](https://github.com/michalsnik/aos): Animations
-- [**GitHub Pages**](https://www.npmjs.com/package/angular-cli-ghpages): To deploy the app
+- [Angular 9](https://angular.io/): Front-end framework
+- [NGXS](https://www.ngxs.io/): State management
+- [Bootstrap](https://getbootstrap.com/): Styling library
+- [MomentJS](https://momentjs.com/): Date formatting
+- [AOS](https://github.com/michalsnik/aos): Animations
+- [GitHub Pages](https://www.npmjs.com/package/angular-cli-ghpages): To deploy the app
 
 ### Workflow
 
