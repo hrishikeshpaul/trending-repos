@@ -1,3 +1,6 @@
+/**
+ * Interface for each repositoy object
+ */
 export interface Repo {
   name: string;
   url: string;
@@ -8,9 +11,12 @@ export interface Repo {
   stars: number;
   issues: number;
   created: string;
-  idx: number;
+  dur: number;
 }
 
+/**
+ * Interface for the error object
+ */
 export interface Error {
   message?: string;
   statusText?: string;

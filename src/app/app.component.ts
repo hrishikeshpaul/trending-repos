@@ -12,11 +12,12 @@ import * as AOS from 'aos';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  // Declare Selector observables for retrieves the data
+  // from the store
   @Select(RepoState.getRepoList) repos$: Observable<Repo[]>;
   @Select(RepoState.isLoading) isLoading$: Observable<boolean>;
   @Select(RepoState.getStatus) status$: Observable<number>;
   @Select(RepoState.getError) error$: Observable<Error>;
-  @Select(RepoState.isLoading) state$: Observable<RepoStateModel>;
 
   status: number;
   error: Error;
@@ -24,32 +25,45 @@ export class AppComponent implements OnInit {
   isLoading: boolean;
 
   constructor(private store: Store) {
+    // Initialize animation on scroll for cards
     AOS.init({
       offset: -200,
       easing: 'ease',
       once: true
     });
+
+    // On creation, fetch all the repos
     this.store.dispatch(new FetchAllRepos());
   }
 
   ngOnInit() {
+    // Subscribe to retrieve the data when updated
     this.repos$.subscribe(data => {
       this.repoList = data;
     });
-
+    
+    // Subscribe to retrieve the status of app
     this.status$.subscribe(status => {
       this.status = status;
     });
-
+    
+    // Subscribe to recieve errors when occur
     this.error$.subscribe(error => {
       this.error = error;
     });
   }
-
+  
+  /**
+   * Function to dispatch an action to retrieve the repo list
+   */
   getRepoList() {
     this.store.dispatch(new FetchAllRepos());
   }
-
+  
+  /**
+   * Watch the scroll
+   * When tscrolled to bottom, get a new set of repo list
+   */
   @HostListener('window:scroll', ['$event'])
   onScroll() {
     if (

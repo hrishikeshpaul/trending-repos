@@ -14,7 +14,6 @@ export class RepoCardComponent implements OnInit {
 
   moment = moment;
 
-
   constructor() { }
 
   ngOnInit(): void {

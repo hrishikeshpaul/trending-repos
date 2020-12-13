@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, HostListener } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Repo } from 'src/app/store/repo.model';
 
 @Component({
@@ -10,13 +10,8 @@ export class ListComponent implements OnInit {
 
   @Input() repoList: Array<Repo>;
 
-  constructor(){
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-
-  }
-
-
+  ngOnInit(): void {}
 
 }

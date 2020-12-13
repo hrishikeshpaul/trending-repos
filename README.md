@@ -100,7 +100,7 @@ Diagram below depics the workflow,
     stars: number;
     issues: number;
     created: string;
-    idx: number;
+    dur: number;
   }
   ```
 - Displays the data in the format mentioned in the mock-ups.
