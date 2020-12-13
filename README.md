@@ -47,6 +47,7 @@ The user can also visit the repository by clicking on the repository name.
 - **Bootstrap**: Styling library
 - **MomentJS**: Date formatting
 - **AOS**: Animations
+- **GitHub Pages**: To deploy the app
 
 ### Workflow
 
@@ -178,8 +179,8 @@ Return observables of the data or object so that the data can be consumed by the
 
 ### Helper Function
 
-#### function URL(date: string, page: number) 
-- Accepts the last 3 days date and page number and returns an URL with the mentioned query parameters.
+#### URL
+- Accepts the last 30 days date and page number and returns an URL with the mentioned query parameters.
 
 
 
