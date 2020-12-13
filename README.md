@@ -56,6 +56,7 @@ The user can also visit the repository by clicking on the repository name.
 The application makes use of a state management system which keeps track of 
   - the data fetched from GitHub, 
   - the page number, 
+  - the status of the application,
   - whether the data is being fetched (loading)
   - and the errors (if any)
 
