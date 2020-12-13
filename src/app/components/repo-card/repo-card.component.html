@@ -1,9 +1,9 @@
 <div class="g-card p-4 br">
   <div class="row">
-    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 text-center">
+    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-12 text-center">
       <img [src]="repo.avatar" alt="" class="w-100 br" />
     </div>
-    <div class="col-xl-10 col-lg-10 col-md-9 col-sm-12">
+    <div class="col-xl-10 col-lg-10 col-md-8 col-sm-12">
       <div class="card h-100">
         <div class="card-header p-0 pt-2 repo-name">
           <h3 class="bold"><a [href]="repo.url" class="text-decoration-none repo-name-link" target="_blank">{{ repo.name }}</a></h3>
@@ -21,7 +21,7 @@
                 <span class="bold">{{ repo.stars }}</span>
               </div>
             </div>
-            <div class="badger pl-5 my-1 issue">
+            <div class="badger pl-5 issue">
               <div class="rounded bg-secondary py-1 px-2 badger">
                 <i class="fas fa-exclamation-circle text-danger"></i> Issues
               </div>
