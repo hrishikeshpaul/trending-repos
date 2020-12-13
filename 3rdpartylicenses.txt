@@ -32,12 +32,6 @@ MIT
 @angular/platform-browser
 MIT
 
-@ngxs/devtools-plugin
-MIT
-
-@ngxs/logger-plugin
-MIT
-
 @ngxs/store
 MIT
 
