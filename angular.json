@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "geninvo-test": {
+    "trending-repos": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/geninvo-test",
+            "outputPath": "dist/trending-repos",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "geninvo-test:build"
+            "browserTarget": "trending-repos:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "geninvo-test:build:production"
+              "browserTarget": "trending-repos:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "geninvo-test:build"
+            "browserTarget": "trending-repos:build"
           }
         },
         "test": {
@@ -114,11 +114,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "geninvo-test:serve"
+            "devServerTarget": "trending-repos:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "geninvo-test:serve:production"
+              "devServerTarget": "trending-repos:serve:production"
             }
           }
         },
@@ -129,5 +129,5 @@
       }
     }
   },
-  "defaultProject": "geninvo-test"
+  "defaultProject": "trending-repos"
 }
