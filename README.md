@@ -14,6 +14,7 @@ The user can also visit the repository by clicking on the repository name.
 - Requirements
   - NPM
   - Angular CLI
+  - Git
 
 - Clone the repository on your local system
    ```shell
@@ -75,7 +76,7 @@ Diagram below depics the workflow,
 
 ### Components
 
-### App Component
+#### App Component
 
 - Wrapper component that houses the list and the error components.
 - Passes data to the respective components.
