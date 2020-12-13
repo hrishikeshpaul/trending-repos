@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
   /**
    * Function to dispatch an action to retrieve the repo list
    */
-  getRepoList() {
+  getRepoList(): void {
     this.store.dispatch(new FetchAllRepos());
   }
   
@@ -65,7 +65,7 @@ export class AppComponent implements OnInit {
    * When tscrolled to bottom, get a new set of repo list
    */
   @HostListener('window:scroll', ['$event'])
-  onScroll() {
+  onScroll(): void {
     if (
       window.innerHeight + window.pageYOffset ===
       document.documentElement.offsetHeight
