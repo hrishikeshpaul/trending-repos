@@ -34,7 +34,7 @@ The user can also visit the repository by clicking on the repository name.
 
 - For production
   ```shell
-  $ ng deploy --base-href=https://<username>.github.io trending-repos/ --name=<name> --email=<email>
+  $ ng deploy --base-href=https://<username>.github.io/trending-repos/ --name=<name> --email=<email>
   ```
 
 # Documentation
