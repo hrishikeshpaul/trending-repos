@@ -12,9 +12,9 @@ The user can also visit the repository by clicking on the repository name.
 ## How to run
 
 - Requirements
-  - NPM
-  - Angular CLI
-  - Git
+  - [NPM](https://docs.npmjs.com/)
+  - [Angular](https://angular.io/docs)
+  - [Git](https://git-scm.com/doc)
 
 - Clone the repository on your local system
    ```shell
@@ -22,7 +22,7 @@ The user can also visit the repository by clicking on the repository name.
    $ cd trending-repos
    ```
 
-- Start development server
+- Start the development server
    ```shell
    $ npm install
    $ ng serve -o 
@@ -42,12 +42,12 @@ The user can also visit the repository by clicking on the repository name.
 ## Documentation
 
 ### Packages
-- **Angular 9**: Front-end framework
-- **NGXS**: State management
-- **Bootstrap**: Styling library
-- **MomentJS**: Date formatting
-- **AOS**: Animations
-- **GitHub Pages**: To deploy the app
+- [**Angular 9**](https://angular.io/): Front-end framework
+- [**NGXS**](https://www.ngxs.io/): State management
+- [**Bootstrap**](https://getbootstrap.com/): Styling library
+- [**MomentJS**](https://momentjs.com/): Date formatting
+- [**AOS**](https://github.com/michalsnik/aos): Animations
+- [**GitHub Pages**](https://www.npmjs.com/package/angular-cli-ghpages): To deploy the app
 
 ### Workflow
 
@@ -72,8 +72,12 @@ The application makes use of 2 dumb componenets - list and repo-card. These comp
 
 Diagram below depics the workflow,
 
+<p align="center">
+  <img alt="Workflow" src="src/assets/tr-workflow.png">
+  <br>
+    <em>Figure 1: System Workflow</em>
+</p>
 
-<img src="src/assets/tr-workflow.png" style="width: 100%" />
 
 ### Components
 
