@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 import { NgxsModule } from '@ngxs/store';
-import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 
 import {HttpClientModule} from '@angular/common/http';
 
@@ -26,8 +24,6 @@ import { ErrorComponent } from './components/error/error.component';
   imports: [
     BrowserModule,
     NgxsModule.forRoot([RepoState]),
-    NgxsReduxDevtoolsPluginModule.forRoot(),
-    NgxsLoggerPluginModule.forRoot(),
     HttpClientModule
   ],
   providers: [],
